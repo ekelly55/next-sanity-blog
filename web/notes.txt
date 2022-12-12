@@ -1,0 +1,5 @@
+look further into dynamic routing, static vs server side rendering 
+
+https://nextjs.org/docs/basic-features/pages
+
+npx @sanity/cli start in sanity-tutorial blog
