@@ -1,5 +1,10 @@
 import groq from 'groq'
+import imageUrlBuilder from '@sanity/image-url'
 import client from '../../client'
+
+function urlFor (source) {
+  return imageUrlBuilder(client).image(source)
+}
 
 const Post = ({post}) => {
   const { title = 'Missing title', name = 'Missing name', categories  } = post
@@ -13,7 +18,15 @@ const Post = ({post}) => {
           {categories.map(category => <li key={category}>{category}</li>)}
         </ul>
       )}
-
+      {authorImage && (
+        <div>
+          <img
+            src={urlFor(authorImage)
+              .width(50)
+              .url()}
+          />
+        </div>
+      )}
     </article>
   )
 }
